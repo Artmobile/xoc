@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4C1BF34150F5E2000D152DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF33150F5E2000D152DC /* UIKit.framework */; };
+		D4C1BF36150F5E2000D152DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF35150F5E2000D152DC /* Foundation.framework */; };
+		D4C1BF38150F5E2000D152DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF37150F5E2000D152DC /* CoreGraphics.framework */; };
+		D4C1BF3E150F5E2000D152DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF3C150F5E2000D152DC /* InfoPlist.strings */; };
+		D4C1BF40150F5E2000D152DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BF3F150F5E2000D152DC /* main.m */; };
+		D4C1BF44150F5E2000D152DC /* xocAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BF43150F5E2000D152DC /* xocAppDelegate.m */; };
+		D4C1BF47150F5E2000D152DC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF45150F5E2000D152DC /* MainWindow.xib */; };
+		D4C1BF4A150F5E2000D152DC /* xocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BF49150F5E2000D152DC /* xocViewController.m */; };
+		D4C1BF4D150F5E2000D152DC /* xocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF4B150F5E2000D152DC /* xocViewController.xib */; };
+		D4C1BF55150F5E2000D152DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF54150F5E2000D152DC /* SenTestingKit.framework */; };
+		D4C1BF56150F5E2000D152DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF33150F5E2000D152DC /* UIKit.framework */; };
+		D4C1BF57150F5E2000D152DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF35150F5E2000D152DC /* Foundation.framework */; };
+		D4C1BF58150F5E2000D152DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF37150F5E2000D152DC /* CoreGraphics.framework */; };
+		D4C1BF60150F5E2000D152DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF5E150F5E2000D152DC /* InfoPlist.strings */; };
+		D4C1BF62150F5E2000D152DC /* xocTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF61150F5E2000D152DC /* xocTests.h */; };
+		D4C1BF64150F5E2000D152DC /* xocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BF63150F5E2000D152DC /* xocTests.m */; };
+		D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D67F17151333E9002FFDD5 /* PlistHandler.m */; };
+		D4D67F1E1513344B002FFDD5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4C1BF59150F5E2000D152DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4C1BF26150F5E2000D152DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4C1BF2E150F5E2000D152DC;
+			remoteInfo = xoc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4C1BF2F150F5E2000D152DC /* xoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C1BF33150F5E2000D152DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D4C1BF35150F5E2000D152DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4C1BF37150F5E2000D152DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D4C1BF3B150F5E2000D152DC /* xoc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xoc-Info.plist"; sourceTree = "<group>"; };
+		D4C1BF3D150F5E2000D152DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4C1BF3F150F5E2000D152DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4C1BF41150F5E2000D152DC /* xoc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xoc-Prefix.pch"; sourceTree = "<group>"; };
+		D4C1BF42150F5E2000D152DC /* xocAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xocAppDelegate.h; sourceTree = "<group>"; };
+		D4C1BF43150F5E2000D152DC /* xocAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xocAppDelegate.m; sourceTree = "<group>"; };
+		D4C1BF46150F5E2000D152DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D4C1BF48150F5E2000D152DC /* xocViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xocViewController.h; sourceTree = "<group>"; };
+		D4C1BF49150F5E2000D152DC /* xocViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xocViewController.m; sourceTree = "<group>"; };
+		D4C1BF4C150F5E2000D152DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/xocViewController.xib; sourceTree = "<group>"; };
+		D4C1BF53150F5E2000D152DC /* xocTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xocTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C1BF54150F5E2000D152DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D4C1BF5D150F5E2000D152DC /* xocTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xocTests-Info.plist"; sourceTree = "<group>"; };
+		D4C1BF5F150F5E2000D152DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4C1BF61150F5E2000D152DC /* xocTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xocTests.h; sourceTree = "<group>"; };
+		D4C1BF63150F5E2000D152DC /* xocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xocTests.m; sourceTree = "<group>"; };
+		D4C1BF71150F75AB00D152DC /* PlistHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistHandler.h; sourceTree = "<group>"; };
+		D4D67F16151333E9002FFDD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/PlistHandler.m; sourceTree = "<group>"; };
+		D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4C1BF2C150F5E2000D152DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D67F1E1513344B002FFDD5 /* libsqlite3.0.dylib in Frameworks */,
+				D4C1BF34150F5E2000D152DC /* UIKit.framework in Frameworks */,
+				D4C1BF36150F5E2000D152DC /* Foundation.framework in Frameworks */,
+				D4C1BF38150F5E2000D152DC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C1BF4F150F5E2000D152DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C1BF55150F5E2000D152DC /* SenTestingKit.framework in Frameworks */,
+				D4C1BF56150F5E2000D152DC /* UIKit.framework in Frameworks */,
+				D4C1BF57150F5E2000D152DC /* Foundation.framework in Frameworks */,
+				D4C1BF58150F5E2000D152DC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4C1BF24150F5E2000D152DC = {
+			isa = PBXGroup;
+			children = (
+				D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */,
+				D4C1BF39150F5E2000D152DC /* xoc */,
+				D4C1BF5B150F5E2000D152DC /* xocTests */,
+				D4C1BF32150F5E2000D152DC /* Frameworks */,
+				D4C1BF30150F5E2000D152DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4C1BF30150F5E2000D152DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF2F150F5E2000D152DC /* xoc.app */,
+				D4C1BF53150F5E2000D152DC /* xocTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4C1BF32150F5E2000D152DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF33150F5E2000D152DC /* UIKit.framework */,
+				D4C1BF35150F5E2000D152DC /* Foundation.framework */,
+				D4C1BF37150F5E2000D152DC /* CoreGraphics.framework */,
+				D4C1BF54150F5E2000D152DC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4C1BF39150F5E2000D152DC /* xoc */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF42150F5E2000D152DC /* xocAppDelegate.h */,
+				D4C1BF43150F5E2000D152DC /* xocAppDelegate.m */,
+				D4C1BF45150F5E2000D152DC /* MainWindow.xib */,
+				D4C1BF48150F5E2000D152DC /* xocViewController.h */,
+				D4C1BF49150F5E2000D152DC /* xocViewController.m */,
+				D4C1BF4B150F5E2000D152DC /* xocViewController.xib */,
+				D4C1BF3A150F5E2000D152DC /* Supporting Files */,
+				D4C1BF71150F75AB00D152DC /* PlistHandler.h */,
+				D4D67F17151333E9002FFDD5 /* PlistHandler.m */,
+			);
+			path = xoc;
+			sourceTree = "<group>";
+		};
+		D4C1BF3A150F5E2000D152DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF3B150F5E2000D152DC /* xoc-Info.plist */,
+				D4C1BF3C150F5E2000D152DC /* InfoPlist.strings */,
+				D4C1BF3F150F5E2000D152DC /* main.m */,
+				D4C1BF41150F5E2000D152DC /* xoc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4C1BF5B150F5E2000D152DC /* xocTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF61150F5E2000D152DC /* xocTests.h */,
+				D4C1BF63150F5E2000D152DC /* xocTests.m */,
+				D4C1BF5C150F5E2000D152DC /* Supporting Files */,
+			);
+			path = xocTests;
+			sourceTree = "<group>";
+		};
+		D4C1BF5C150F5E2000D152DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BF5D150F5E2000D152DC /* xocTests-Info.plist */,
+				D4C1BF5E150F5E2000D152DC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4C1BF2E150F5E2000D152DC /* xoc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C1BF67150F5E2000D152DC /* Build configuration list for PBXNativeTarget "xoc" */;
+			buildPhases = (
+				D4C1BF2B150F5E2000D152DC /* Sources */,
+				D4C1BF2C150F5E2000D152DC /* Frameworks */,
+				D4C1BF2D150F5E2000D152DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xoc;
+			productName = xoc;
+			productReference = D4C1BF2F150F5E2000D152DC /* xoc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4C1BF52150F5E2000D152DC /* xocTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C1BF6A150F5E2000D152DC /* Build configuration list for PBXNativeTarget "xocTests" */;
+			buildPhases = (
+				D4C1BF4E150F5E2000D152DC /* Sources */,
+				D4C1BF4F150F5E2000D152DC /* Frameworks */,
+				D4C1BF50150F5E2000D152DC /* Resources */,
+				D4C1BF51150F5E2000D152DC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4C1BF5A150F5E2000D152DC /* PBXTargetDependency */,
+			);
+			name = xocTests;
+			productName = xocTests;
+			productReference = D4C1BF53150F5E2000D152DC /* xocTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4C1BF26150F5E2000D152DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "artmobile@gmail.com";
+			};
+			buildConfigurationList = D4C1BF29150F5E2000D152DC /* Build configuration list for PBXProject "xoc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D4C1BF24150F5E2000D152DC;
+			productRefGroup = D4C1BF30150F5E2000D152DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4C1BF2E150F5E2000D152DC /* xoc */,
+				D4C1BF52150F5E2000D152DC /* xocTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4C1BF2D150F5E2000D152DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C1BF3E150F5E2000D152DC /* InfoPlist.strings in Resources */,
+				D4C1BF47150F5E2000D152DC /* MainWindow.xib in Resources */,
+				D4C1BF4D150F5E2000D152DC /* xocViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C1BF50150F5E2000D152DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C1BF60150F5E2000D152DC /* InfoPlist.strings in Resources */,
+				D4C1BF62150F5E2000D152DC /* xocTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4C1BF51150F5E2000D152DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4C1BF2B150F5E2000D152DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C1BF40150F5E2000D152DC /* main.m in Sources */,
+				D4C1BF44150F5E2000D152DC /* xocAppDelegate.m in Sources */,
+				D4C1BF4A150F5E2000D152DC /* xocViewController.m in Sources */,
+				D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C1BF4E150F5E2000D152DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C1BF64150F5E2000D152DC /* xocTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4C1BF5A150F5E2000D152DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4C1BF2E150F5E2000D152DC /* xoc */;
+			targetProxy = D4C1BF59150F5E2000D152DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4C1BF3C150F5E2000D152DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4C1BF3D150F5E2000D152DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4C1BF45150F5E2000D152DC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4C1BF46150F5E2000D152DC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D4C1BF4B150F5E2000D152DC /* xocViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4C1BF4C150F5E2000D152DC /* en */,
+			);
+			name = xocViewController.xib;
+			sourceTree = "<group>";
+		};
+		D4C1BF5E150F5E2000D152DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4C1BF5F150F5E2000D152DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4D67F17151333E9002FFDD5 /* PlistHandler.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4D67F16151333E9002FFDD5 /* en */,
+			);
+			name = PlistHandler.m;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4C1BF65150F5E2000D152DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D4C1BF66150F5E2000D152DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4C1BF68150F5E2000D152DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xoc/xoc-Prefix.pch";
+				INFOPLIST_FILE = "xoc/xoc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D4C1BF69150F5E2000D152DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xoc/xoc-Prefix.pch";
+				INFOPLIST_FILE = "xoc/xoc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D4C1BF6B150F5E2000D152DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xoc.app/xoc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xoc/xoc-Prefix.pch";
+				INFOPLIST_FILE = "xocTests/xocTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D4C1BF6C150F5E2000D152DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xoc.app/xoc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xoc/xoc-Prefix.pch";
+				INFOPLIST_FILE = "xocTests/xocTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4C1BF29150F5E2000D152DC /* Build configuration list for PBXProject "xoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C1BF65150F5E2000D152DC /* Debug */,
+				D4C1BF66150F5E2000D152DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4C1BF67150F5E2000D152DC /* Build configuration list for PBXNativeTarget "xoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C1BF68150F5E2000D152DC /* Debug */,
+				D4C1BF69150F5E2000D152DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4C1BF6A150F5E2000D152DC /* Build configuration list for PBXNativeTarget "xocTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C1BF6B150F5E2000D152DC /* Debug */,
+				D4C1BF6C150F5E2000D152DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4C1BF26150F5E2000D152DC /* Project object */;
+}
