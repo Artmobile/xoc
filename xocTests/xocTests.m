@@ -7,6 +7,7 @@
 //
 
 #import "xocTests.h"
+#import "SqliteConnector.h"
 
 @implementation xocTests
 
@@ -26,7 +27,12 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in xocTests");
+    SqliteConnector *connector = [[SqliteConnector alloc] init: @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"];
+    
+    [connector getBookmarkAddress:@"walla"];
+    
+    // When the connector is released
+    [connector release];
 }
 
 @end
