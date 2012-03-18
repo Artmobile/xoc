@@ -27,9 +27,38 @@
 
 - (void)testExample
 {
-    SqliteConnector *connector = [[SqliteConnector alloc] init: @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"];
+    // Point to the bookmark file on the iOS simulator
+    NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"; 
     
-    [connector getBookmarkAddress:@"walla"];
+    
+    // Create Sqlite connector to that file
+    SqliteConnector *connector = [[SqliteConnector alloc] initWithFilename: bookmarkLocation];
+    
+    
+    /*
+    // Extract all bookmarks called walla
+    NSMutableArray* array =  [connector getBookmarkAddress:@"walla"];
+    
+    Bookmark* bookmark = [array objectAtIndex:0];  
+    
+    
+    NSLog(@"Found bookmark called %@", bookmark.title);
+     
+     [array removeAllObjects];
+     [array release];
+ 
+    */
+    
+    Bookmark* bookmark = [Bookmark alloc];
+    
+    bookmark.title = @"facebook";
+    bookmark.address = @"www.facebook.com";
+    
+    [connector insertBookmark:bookmark];
+    
+    
+    [bookmark release];
+    
     
     // When the connector is released
     [connector release];

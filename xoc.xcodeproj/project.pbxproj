@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4216D7015137FE50009A965 /* SqliteConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = D4216D6F15137FE50009A965 /* SqliteConnector.m */; };
+		D4216D7315161BC70009A965 /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = D4216D7215161BC70009A965 /* Bookmark.m */; };
 		D4C1BF34150F5E2000D152DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF33150F5E2000D152DC /* UIKit.framework */; };
 		D4C1BF36150F5E2000D152DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF35150F5E2000D152DC /* Foundation.framework */; };
 		D4C1BF38150F5E2000D152DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF37150F5E2000D152DC /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		D4216D6E15137FE50009A965 /* SqliteConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteConnector.h; sourceTree = "<group>"; };
 		D4216D6F15137FE50009A965 /* SqliteConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteConnector.m; sourceTree = "<group>"; };
+		D4216D7115161BC70009A965 /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
+		D4216D7215161BC70009A965 /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 		D4C1BF2F150F5E2000D152DC /* xoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C1BF33150F5E2000D152DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4C1BF35150F5E2000D152DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 			children = (
 				D4216D6E15137FE50009A965 /* SqliteConnector.h */,
 				D4216D6F15137FE50009A965 /* SqliteConnector.m */,
+				D4216D7115161BC70009A965 /* Bookmark.h */,
+				D4216D7215161BC70009A965 /* Bookmark.m */,
 			);
 			name = Connector;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				D4C1BF4A150F5E2000D152DC /* xocViewController.m in Sources */,
 				D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */,
 				D4216D7015137FE50009A965 /* SqliteConnector.m in Sources */,
+				D4216D7315161BC70009A965 /* Bookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
