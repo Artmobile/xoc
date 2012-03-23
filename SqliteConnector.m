@@ -84,6 +84,7 @@
     int sql_result = sqlite3_prepare_v2(_database, querychar, -1, &statement, NULL);
     
     if( sql_result == SQLITE_OK){
+        sqlite3_step(statement);
         result = sqlite3_changes(_database);
     }
     
@@ -105,28 +106,8 @@
     
     // Create a new Bookmark.
      
-    NSString *query = [NSString stringWithFormat: @"INSERT INTO bookmarks (special_id, id, type, title, url, num_children, editable, deletable, hidden, hidden_ancestor_count, order_index, external_uuid, sync_key, extra_attributes) VALUES (0,%d,0, '%@', '%@', 0, 1,1,0,0,5, '00000000-0000-0000-0000-000000000001', NULL, NULL)",bookmarks_bar_id, bookmark.title, bookmark.address ];        
+    NSString *query = [NSString stringWithFormat: @"INSERT INTO bookmarks (special_id, parent, type, title, url, num_children, editable, deletable, hidden, hidden_ancestor_count, order_index, external_uuid, sync_key, extra_attributes) VALUES (0,%d,0, '%@', '%@', 0, 1,1,0,0,5, '00000000-0000-0000-0000-000000000001', NULL, NULL)",bookmarks_bar_id,bookmark.title, bookmark.address ];        
     
-    /*
-    const char *querychar = [query UTF8String]; 
-    
-    sqlite3_stmt *statement; 
-    
-    
-    if (sqlite3_prepare_v2(_database, querychar, -1, &statement, NULL) == SQLITE_OK)
-    {
-        
-        
-        sqlite3_step(statement);
-        
-        sqlite3_finalize(statement);
-        
-    }
-    else
-    {
-        NSLog(@"Error"); 
-    }
-    */
     
     int rows_affected = 0;
     
