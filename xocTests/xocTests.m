@@ -8,8 +8,13 @@
 
 #import "xocTests.h"
 #import "SqliteConnector.h"
+#import "SqliteHelper.h"
 
 @implementation xocTests
+
+// Point to the bookmark file on the iOS simulator
+NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"; 
+
 
 - (void)setUp
 {
@@ -25,29 +30,57 @@
     [super tearDown];
 }
 
+
+- (void)testSqlHelper{
+    sqlite3* database = [SqliteHelper openDatabase: bookmarkLocation];
+
+    
+    sqlite3_stmt* stmt = [SqliteHelper prepare_query: database query:@"SELECT title, url FROM bookmarks"];
+    
+    NSMutableArray* bookmarks = [[NSMutableArray alloc] init];
+    
+    
+    while(sqlite3_step(stmt) == SQLITE_ROW) {
+
+         NSString *aUrl = [SqliteHelper getString:stmt index:1];
+
+        
+         // Read the data from the result row
+         NSString *aTitle = [SqliteHelper getString:stmt index:0];
+         
+         
+         Bookmark* bookmark = [Bookmark alloc];
+         
+         bookmark.title = aTitle;
+         bookmark.address = aUrl;
+        
+        
+         [bookmark retain];   
+        
+         [bookmarks addObject:bookmark];
+    }
+
+    
+    for (id current in bookmarks) {
+        Bookmark* bm = (Bookmark*)current;
+        NSLog(@"%@", bm.title);
+    }
+    
+    sqlite3_finalize(stmt);
+    sqlite3_close(database); 
+}
+
+
+
 - (void)testExample
 {
-    // Point to the bookmark file on the iOS simulator
-    NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"; 
-    
-    
+    [self testSqlHelper];
+}
+
+
+- (void) testInsertBookmarkInsert {
     // Create Sqlite connector to that file
     SqliteConnector *connector = [[SqliteConnector alloc] initWithFilename: bookmarkLocation];
-    
-    
-    /*
-    // Extract all bookmarks called walla
-    NSMutableArray* array =  [connector getBookmarkAddress:@"walla"];
-    
-    Bookmark* bookmark = [array objectAtIndex:0];  
-    
-    
-    NSLog(@"Found bookmark called %@", bookmark.title);
-     
-     [array removeAllObjects];
-     [array release];
- 
-    */
     
     Bookmark* bookmark = [Bookmark alloc];
     
@@ -64,4 +97,20 @@
     [connector release];
 }
 
+- (void) testGetBookmarkAddress {
+    // Create Sqlite connector to that file
+    SqliteConnector *connector = [[SqliteConnector alloc] initWithFilename: bookmarkLocation];
+
+    
+    // Extract all bookmarks called walla
+    NSMutableArray* array =  [connector getBookmarkAddress:@"walla"];
+    
+    Bookmark* bookmark = [array objectAtIndex:0];  
+    
+    
+    NSLog(@"Found bookmark called %@", bookmark.title);
+    
+    [array removeAllObjects];
+    [array release];
+}
 @end

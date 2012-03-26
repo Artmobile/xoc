@@ -12,7 +12,7 @@
 }
 
 
-@property (nonatomic, retain) NSString* address;
-@property (nonatomic, retain) NSString* title;
+@property (retain) NSString* address;
+@property (retain) NSString* title;
 
 @end
