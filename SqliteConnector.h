@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h> // Import the sqlite3 database framework
+#import "SqliteHelper.h"
 
 #import "Bookmark.h"
 
@@ -19,9 +20,6 @@
 
 - (id)init;
 - (id)initWithFilename:                 (NSString*) fileName;
-
-- (int)executeScalarInt:                (NSString*) query;
-- (int)execute:                         (NSString*) query; 
 
 - (int) getBookmarksBarChildren;
 - (int) getBookmarksBarId;

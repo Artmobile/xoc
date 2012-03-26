@@ -18,4 +18,6 @@
 + (int)             executeScalarInt:    (sqlite3*) database query:   (NSString*) query;
 + (int)             execute:             (sqlite3*) database query:   (NSString*) query; 
 
+// return a new autoreleased UUID string
++ (NSString *)generateUuidString;
 @end

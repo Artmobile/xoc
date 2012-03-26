@@ -31,35 +31,39 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 }
 
 
-- (void)testSqlHelper{
-    sqlite3* database = [SqliteHelper openDatabase: bookmarkLocation];
+- (void)testExample
+{
+    [self testGetBookmarkAddress];
+}
 
+- (void)testSqlHelper{
+    NSMutableArray* bookmarks = [[NSMutableArray alloc] init];
+    
+    sqlite3* database = [SqliteHelper openDatabase: bookmarkLocation];
     
     sqlite3_stmt* stmt = [SqliteHelper prepare_query: database query:@"SELECT title, url FROM bookmarks"];
     
-    NSMutableArray* bookmarks = [[NSMutableArray alloc] init];
-    
     
     while(sqlite3_step(stmt) == SQLITE_ROW) {
-
-         NSString *aUrl = [SqliteHelper getString:stmt index:1];
-
         
-         // Read the data from the result row
-         NSString *aTitle = [SqliteHelper getString:stmt index:0];
-         
-         
-         Bookmark* bookmark = [Bookmark alloc];
-         
-         bookmark.title = aTitle;
-         bookmark.address = aUrl;
+        NSString *aUrl = [SqliteHelper getString:stmt index:1];
         
         
-         [bookmark retain];   
+        // Read the data from the result row
+        NSString *aTitle = [SqliteHelper getString:stmt index:0];
         
-         [bookmarks addObject:bookmark];
+        
+        Bookmark* bookmark = [Bookmark alloc];
+        
+        bookmark.title = aTitle;
+        bookmark.address = aUrl;
+        
+        
+        [bookmark retain];   
+        
+        [bookmarks addObject:bookmark];
     }
-
+    
     
     for (id current in bookmarks) {
         Bookmark* bm = (Bookmark*)current;
@@ -69,14 +73,6 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
     sqlite3_finalize(stmt);
     sqlite3_close(database); 
 }
-
-
-
-- (void)testExample
-{
-    [self testSqlHelper];
-}
-
 
 - (void) testInsertBookmarkInsert {
     // Create Sqlite connector to that file
@@ -103,14 +99,12 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 
     
     // Extract all bookmarks called walla
-    NSMutableArray* array =  [connector getBookmarkAddress:@"walla"];
+    NSMutableArray* array =  [connector getBookmarkAddress:@"facebook"];
     
     Bookmark* bookmark = [array objectAtIndex:0];  
     
+    NSLog(@"Found bookmark called %@", bookmark.address);
     
-    NSLog(@"Found bookmark called %@", bookmark.title);
-    
-    [array removeAllObjects];
     [array release];
 }
 @end
