@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4216D7015137FE50009A965 /* SqliteConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = D4216D6F15137FE50009A965 /* SqliteConnector.m */; };
+		D4216D7015137FE50009A965 /* BookmarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4216D6F15137FE50009A965 /* BookmarkManager.m */; };
 		D4216D7315161BC70009A965 /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = D4216D7215161BC70009A965 /* Bookmark.m */; };
 		D4BAD8F9151CAE480083E33E /* SqliteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD8F8151CAE480083E33E /* SqliteHelper.m */; };
 		D4C1BF34150F5E2000D152DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C1BF33150F5E2000D152DC /* UIKit.framework */; };
@@ -42,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D4216D6E15137FE50009A965 /* SqliteConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteConnector.h; sourceTree = "<group>"; };
-		D4216D6F15137FE50009A965 /* SqliteConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteConnector.m; sourceTree = "<group>"; };
+		D4216D6E15137FE50009A965 /* BookmarkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkManager.h; sourceTree = "<group>"; };
+		D4216D6F15137FE50009A965 /* BookmarkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkManager.m; sourceTree = "<group>"; };
 		D4216D7115161BC70009A965 /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		D4216D7215161BC70009A965 /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 		D4BAD8F7151CAE480083E33E /* SqliteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteHelper.h; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 		D4216D6C15137FB10009A965 /* Connector */ = {
 			isa = PBXGroup;
 			children = (
-				D4216D6E15137FE50009A965 /* SqliteConnector.h */,
-				D4216D6F15137FE50009A965 /* SqliteConnector.m */,
+				D4216D6E15137FE50009A965 /* BookmarkManager.h */,
+				D4216D6F15137FE50009A965 /* BookmarkManager.m */,
 				D4216D7115161BC70009A965 /* Bookmark.h */,
 				D4216D7215161BC70009A965 /* Bookmark.m */,
 				D4BAD8F7151CAE480083E33E /* SqliteHelper.h */,
@@ -305,7 +305,7 @@
 				D4C1BF44150F5E2000D152DC /* xocAppDelegate.m in Sources */,
 				D4C1BF4A150F5E2000D152DC /* xocViewController.m in Sources */,
 				D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */,
-				D4216D7015137FE50009A965 /* SqliteConnector.m in Sources */,
+				D4216D7015137FE50009A965 /* BookmarkManager.m in Sources */,
 				D4216D7315161BC70009A965 /* Bookmark.m in Sources */,
 				D4BAD8F9151CAE480083E33E /* SqliteHelper.m in Sources */,
 			);
