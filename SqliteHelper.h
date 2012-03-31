@@ -19,6 +19,8 @@
 + (int)             execute:             (sqlite3*) database query:   (NSString*) query result: (SQLITE_API int*) result; 
 
 + (void)            logError:(int) error_code message: (NSString*) message, ...;
++ (void)            logLastError: (sqlite3*) database message: (NSString*) message, ...;
+
 + (NSString*)       fromCode: (SQLITE_API int) code;
 
 // return a new autoreleased UUID string

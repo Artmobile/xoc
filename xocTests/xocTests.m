@@ -21,7 +21,11 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 {
     [super setUp];
     
+    
     // Set-up code here.
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) lastObject];
+    bookmarkLocation = [libraryPath stringByAppendingPathComponent:@"Safary/Bookmarks.db"];
+    
 }
 
 - (void)tearDown
@@ -32,31 +36,23 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 }
 
 
-- (void)testExample
-{
-    /*
-    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) lastObject];
-    bookmarkLocation = [libraryPath stringByAppendingPathComponent:@"Safary/Bookmarks.db"];
-    */
-}
-
-
 - (void)testSqlHelper{
     NSMutableArray* bookmarks = [[NSMutableArray alloc] init];
     SQLITE_API int result;
     sqlite3* database = [SqliteHelper openDatabase: bookmarkLocation result:&result];
     if(result != SQLITE_OK)
     {
+        // NOTE that we cannot use logLastError since the database is not open yet
         [SqliteHelper logError: result message:@"Could not open database %@", bookmarkLocation];
         return;
     }
     
-    NSString* query = @"SELECT title, url FROM bookmarks";
+    NSString* query = @"SELECT title, url FROM bookmarks1";
     
     sqlite3_stmt* stmt = [SqliteHelper prepare_query: database query:query result:&result];
     if(result != SQLITE_OK)
     {
-        [SqliteHelper logError: result message:@"Could not prepare a statement for %@", query];
+        [SqliteHelper logLastError: database message:@"Could not prepare a statement for %@", query];
         return;
     }
 
@@ -110,11 +106,7 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
     if(result != SQLITE_OK)
         [SqliteHelper logError: result message:@"Could not insert bookmark. Bookmark taitle was %@ and address was %@", bookmark.title, bookmark.address];
     
-
-
-    
     [bookmark release];
-    
     
     // When the connector is released
     [connector release];

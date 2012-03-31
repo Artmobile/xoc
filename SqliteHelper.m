@@ -66,13 +66,41 @@
     }
 }
 
+// Use this function to log the error
 + (void) logError:(int) error_code message: (NSString*) message, ...{
     va_list args;
     va_start(args, message);
+    
     NSLog(@"\nError (%d) occurred. [%@]",error_code,  [SqliteHelper fromCode:error_code]); 
     NSLogv(message, args);
     va_end(args);
 }
+
+
+/*  Get the last error code and the message from the db connection
+*/
++ (void) logLastError:(sqlite3*) database message: (NSString*) message, ...{
+    
+    va_list args;  
+    va_start(args, message);
+
+    // If we are not connected to the database, don't bother,
+    // fire away the misuse
+    if(database == NULL){
+
+        [SqliteHelper logError: SQLITE_MISUSE message: message, args];
+        return;
+    }
+    
+    NSString* err_msg     =  [NSString stringWithUTF8String:sqlite3_errmsg(database)];
+    const int   error_code  = sqlite3_errcode(database);
+    
+    NSLog(@"\nDatabase status: Error (%d) occurred. [%@]",error_code, err_msg); 
+    NSLogv(message, args);
+    va_end(args);
+}
+
+
 
 // Open the sqlite database from the connection string 
 + (sqlite3*)openDatabase: (NSString*) databasePath result:(SQLITE_API int*) result {
@@ -81,6 +109,7 @@
     *result = sqlite3_open([databasePath UTF8String], &database);
     
     if(*result != SQLITE_OK) {
+        [SqliteHelper logError:*result message:@"Failed to open the database at %@", databasePath];
         return NULL;
     }
     
@@ -99,6 +128,9 @@
     
     *result =sqlite3_prepare_v2(database, querychar, -1, &statement, NULL);
     
+    if(*result != SQLITE_OK )
+        return -1;
+    
     int return_value;
     
     if(*result == SQLITE_OK){
@@ -108,7 +140,7 @@
     
     
     // Release the compiled statement from memory
-    sqlite3_finalize(statement);   
+    *result = sqlite3_finalize(statement);   
     
     return return_value;
 }
@@ -120,15 +152,18 @@
     sqlite3_stmt *statement;
     
     *result = sqlite3_prepare_v2(database, querychar, -1, &statement, NULL);
+    
+    if (SQLITE_OK != *result) 
+        return -1;
+    
     int rows_affected = 0;
     if( *result == SQLITE_OK){
         sqlite3_step(statement);
         rows_affected = sqlite3_changes(database);
     }
     
-    
     // Release the compiled statement from memory
-    sqlite3_finalize(statement);   
+    *result = sqlite3_finalize(statement);   
     
     return rows_affected;
 }
