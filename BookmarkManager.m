@@ -87,13 +87,12 @@
 }
 
 
-- (int) getBookmarksBarChildren {
-
-    return [SqliteHelper executeScalarInt:_database query:@"SELECT num_children FROM bookmarks WHERE title='BookmarksBar''"];
+- (int) getBookmarksBarChildren: (SQLITE_API int*) result {
+    return [SqliteHelper executeScalarInt:_database query:@"SELECT num_children FROM bookmarks WHERE title='BookmarksBar'" result:result];
 }
 
-- (int) getBookmarksBarId {
-    return [SqliteHelper executeScalarInt:_database query:@"SELECT id FROM bookmarks WHERE title='BookmarksBar'"];
+- (int) getBookmarksBarId: (SQLITE_API int*) result {
+    return [SqliteHelper executeScalarInt:_database query:@"SELECT id FROM bookmarks WHERE title='BookmarksBar'" result:result];
 }
 
 

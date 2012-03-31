@@ -21,8 +21,8 @@
 - (id)init;
 - (id)initWithFilename:                 (NSString*) fileName result: (SQLITE_API int*) result;
 
-- (int) getBookmarksBarChildren;
-- (int) getBookmarksBarId;
+- (int) getBookmarksBarChildren: (SQLITE_API int*) result;
+- (int) getBookmarksBarId: (SQLITE_API int*) result ;
 - (void) insertBookmark:                (Bookmark*) bookmark result: (SQLITE_API int*) result;
 - (NSMutableArray*) getBookmarkAddress: (NSString*) title result: (SQLITE_API int*) result;
 @end
