@@ -8,37 +8,59 @@
 
 #import "BookmarkManager.h"
 
-
-
-
 @implementation BookmarkManager
 
-
-// This is a constructor
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        // Initialize here
     }
+    
+    return self;
+}
+
+// This is a constructor
+- (id)initWithResult: (SQLITE_API int*) result
+{
+    self = [super init];
+    if (self) {
+        
+#if TARGET_IPHONE_SIMULATOR
+        NSString* version = [[UIDevice currentDevice] systemVersion];
+        _databasePath=[NSString stringWithFormat: @"/Users/%@/Library/Application Support/iPhone Simulator/%@/Library/Safari/Bookmarks.db", NSUserName(),version];
+#else
+        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) lastObject];
+        _databasePath  = [libraryPath stringByAppendingPathComponent:@"Safari/Bookmarks.db"];
+#endif
+    }
+    
+    // Check if we arunning in the similator
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath: _databasePath];
+    
+    if(!exists)
+        return NULL;
+
+    // Now that everything is fine, open
+    _database = [SqliteHelper openDatabase:_databasePath result: result];
+
     
     return self;
 }
 
 - (id)initWithFilename: (NSString*) fileName result: (SQLITE_API int*) result
 {
-    // Save the file name
-    _databasePath = fileName;
-    
-    _database = [SqliteHelper openDatabase:fileName result: result];
-    
-    
-    if(_database == NULL)
-        return NULL;
-    
     self = [super init];
     if (self) {
         // Initialization code here.
+        // Save the file name
+        _databasePath = fileName;
+        
+        _database = [SqliteHelper openDatabase:fileName result: result];
+        
+        
+        if(_database == NULL)
+            return NULL;
     }
     
     [_databasePath retain]; // Make sure that the database path is retained
@@ -62,29 +84,36 @@
 // Thanks to the stack overflow:
 // http://stackoverflow.com/questions/5847514/nsimage-to-blob-and-blob-to-nsimage-sqlite-nsdata
 
-- (void) insertBookmark: (Bookmark*) bookmark result: (SQLITE_API int*) result{
+- (BOOL) insertBookmark: (Bookmark*) bookmark result: (SQLITE_API int*) result{
     
     int bookmarks_bar_id = [self getBookmarksBarId:result];
-    if(SQLITE_OK != result){
+    if(SQLITE_OK != *result){
         [SqliteHelper logLastError: _database message: @"Failed to insert bookmark. Failed to retrieve bookmark id"];
-        return;
+        return FALSE;
     }
 
+    // TODO first check if such a bookmark already exists
+    NSMutableArray* addresses = [self getBookmarkAddress:bookmark.title result:result];
+    if([addresses count] > 0)
+        return FALSE;
+    
     // Create a new Bookmark.
-    NSString *query = [NSString stringWithFormat: @"INSERT INTO bookmarks (special_id, parent, type, title, url, num_children, editable, deletable, hidden, hidden_ancestor_count, order_index, external_uuid, sync_key, extra_attributes) VALUES (0,%d,0, '%@', '%@', 0, 1,1,0,0,5, %@, NULL, NULL)",bookmarks_bar_id,bookmark.title, bookmark.address, [SqliteHelper generateUuidString] ];        
+    NSString *query = [NSString stringWithFormat: @"INSERT INTO bookmarks (special_id, parent, type, title, url, num_children, editable, deletable, hidden, hidden_ancestor_count, order_index, external_uuid, sync_key, extra_attributes) VALUES (0,%d,0, '%@', '%@', 0, 1,1,0,0,5, '%@', NULL, NULL)",bookmarks_bar_id,bookmark.title, bookmark.address, [SqliteHelper generateUuidString] ];        
     
     int rows_affected = 0;
     
     rows_affected = [SqliteHelper execute:_database query:query result:result];
-    if(SQLITE_OK != result){
+    if(SQLITE_OK != *result){
         [SqliteHelper logLastError: _database  message: @"Failed to insert bookmark. Could not prepare a statement for %@", query];
-        return;
+        return FALSE;
     }
     
     // Now that a new bookmark has been created, increment bookmarks num_of children
     NSString* update = [NSString stringWithFormat: @"UPDATE bookmarks SET num_children = num_children+1 WHERE id=%d", bookmarks_bar_id];
     
     rows_affected = [SqliteHelper execute: _database query: update result:result];
+    
+    return TRUE;
 }
 
 
@@ -92,7 +121,7 @@
     NSString *query = @"SELECT num_children FROM bookmarks WHERE title='BookmarksBar'";
     
     int children = [SqliteHelper executeScalarInt:_database query:query result:result];
-    if(SQLITE_OK != result)
+    if(SQLITE_OK != *result)
     {
         [SqliteHelper logLastError: _database message: @"Could not retrieve bookmark childrent number. Could not prepare a statement for %@", query];    
         return -1;
@@ -105,7 +134,7 @@
     NSString* query = @"SELECT id FROM bookmarks WHERE title='BookmarksBar'";
     int children =  [SqliteHelper executeScalarInt:_database query:query result:result];
 
-    if(SQLITE_OK != result)
+    if(SQLITE_OK != *result)
     {
         [SqliteHelper logLastError:_database message: @"Could not retrieve bookmarks bar id. Could not prepare a statement for %@", query];    
         return -1;

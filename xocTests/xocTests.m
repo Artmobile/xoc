@@ -9,23 +9,29 @@
 #import "xocTests.h"
 #import "BookmarkManager.h"
 #import "SqliteHelper.h"
+#import <UIKit/UIKit.h>
 
 
 @implementation xocTests
 
 // Point to the bookmark file on the iOS simulator
-NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPhone Simulator/4.3.2/Library/Safari/Bookmarks.db"; 
+NSString* bookmarkLocation = @"";
 
 
 - (void)setUp
 {
     [super setUp];
-    
-    
-    // Set-up code here.
+
+
+#if TARGET_IPHONE_SIMULATOR
+    NSString* version = [[UIDevice currentDevice] systemVersion];
+    bookmarkLocation =[NSString stringWithFormat: @"/Users/%@/Library/Application Support/iPhone Simulator/%@/Library/Safari/Bookmarks.db", NSUserName(),version];
+#else
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) lastObject];
-    bookmarkLocation = [libraryPath stringByAppendingPathComponent:@"Safary/Bookmarks.db"];
+    NSString* location  = [libraryPath stringByAppendingPathComponent:@"Safary/Bookmarks.db"];
     
+    bookmarkLocation = location;
+#endif
 }
 
 - (void)tearDown
@@ -89,7 +95,7 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 - (void) testInsertBookmarkInsert {
     // Create Sqlite connector to that file
     SQLITE_API int result;
-    BookmarkManager *connector = [[BookmarkManager alloc] initWithFilename: bookmarkLocation result: &result];
+    BookmarkManager *connector = [[BookmarkManager alloc] initWithResult: &result];
     
     if(result != SQLITE_OK)
     {
@@ -99,8 +105,8 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
     
     Bookmark* bookmark = [Bookmark alloc];
     
-    bookmark.title = @"facebook";
-    bookmark.address = @"www.facebook.com";
+    bookmark.title = @"IBM";
+    bookmark.address = @"www.ibm.com";
     
     [connector insertBookmark:bookmark result:&result];
     if(result != SQLITE_OK)
@@ -115,7 +121,7 @@ NSString* bookmarkLocation = @"/Users/artmobile/Library/Application Support/iPho
 - (void) testGetBookmarkAddress {
     // Create Sqlite connector to that file
     SQLITE_API int result;
-    BookmarkManager *connector = [[BookmarkManager alloc] initWithFilename: bookmarkLocation result: &result];
+    BookmarkManager *connector = [[BookmarkManager alloc] initWithResult: &result];
     if(result != SQLITE_OK)
     {
         [SqliteHelper logError: result message:@"Could not initialize the bookmark manager. Requested database file was %@", bookmarkLocation];
