@@ -26,6 +26,10 @@
 		D4C1BF60150F5E2000D152DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF5E150F5E2000D152DC /* InfoPlist.strings */; };
 		D4C1BF62150F5E2000D152DC /* xocTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D4C1BF61150F5E2000D152DC /* xocTests.h */; };
 		D4C1BF64150F5E2000D152DC /* xocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BF63150F5E2000D152DC /* xocTests.m */; };
+		D4D034DC1535E57A003FAAB3 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D4D034D81535E57A003FAAB3 /* CHANGELOG.md */; };
+		D4D034DD1535E57A003FAAB3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034DA1535E57A003FAAB3 /* JSONKit.m */; };
+		D4D034DE1535E57A003FAAB3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D4D034DB1535E57A003FAAB3 /* README.md */; };
+		D4D034E11535E5D6003FAAB3 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034E01535E5D6003FAAB3 /* JsonHelper.m */; };
 		D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D67F17151333E9002FFDD5 /* PlistHandler.m */; };
 		D4D67F1E1513344B002FFDD5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */; };
 		D4ED4CBA151F9E24003FD910 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */; };
@@ -69,6 +73,12 @@
 		D4C1BF61150F5E2000D152DC /* xocTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xocTests.h; sourceTree = "<group>"; };
 		D4C1BF63150F5E2000D152DC /* xocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xocTests.m; sourceTree = "<group>"; };
 		D4C1BF71150F75AB00D152DC /* PlistHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistHandler.h; sourceTree = "<group>"; };
+		D4D034D81535E57A003FAAB3 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		D4D034D91535E57A003FAAB3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		D4D034DA1535E57A003FAAB3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		D4D034DB1535E57A003FAAB3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		D4D034DF1535E5D6003FAAB3 /* JsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonHelper.h; sourceTree = "<group>"; };
+		D4D034E01535E5D6003FAAB3 /* JsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonHelper.m; sourceTree = "<group>"; };
 		D4D67F16151333E9002FFDD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/PlistHandler.m; sourceTree = "<group>"; };
 		D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -117,6 +127,9 @@
 		D4C1BF24150F5E2000D152DC = {
 			isa = PBXGroup;
 			children = (
+				D4D034DF1535E5D6003FAAB3 /* JsonHelper.h */,
+				D4D034E01535E5D6003FAAB3 /* JsonHelper.m */,
+				D4D034D51535E54F003FAAB3 /* Library */,
 				D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */,
 				D4216D6C15137FB10009A965 /* Connector */,
 				D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */,
@@ -193,6 +206,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D4D034D51535E54F003FAAB3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D4D034D71535E57A003FAAB3 /* JSONKit */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D4D034D71535E57A003FAAB3 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				D4D034D81535E57A003FAAB3 /* CHANGELOG.md */,
+				D4D034D91535E57A003FAAB3 /* JSONKit.h */,
+				D4D034DA1535E57A003FAAB3 /* JSONKit.m */,
+				D4D034DB1535E57A003FAAB3 /* README.md */,
+			);
+			name = JSONKit;
+			path = Library/JSONKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,6 +299,8 @@
 				D4C1BF3E150F5E2000D152DC /* InfoPlist.strings in Resources */,
 				D4C1BF47150F5E2000D152DC /* MainWindow.xib in Resources */,
 				D4C1BF4D150F5E2000D152DC /* xocViewController.xib in Resources */,
+				D4D034DC1535E57A003FAAB3 /* CHANGELOG.md in Resources */,
+				D4D034DE1535E57A003FAAB3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +343,8 @@
 				D4216D7015137FE50009A965 /* BookmarkManager.m in Sources */,
 				D4216D7315161BC70009A965 /* Bookmark.m in Sources */,
 				D4BAD8F9151CAE480083E33E /* SqliteHelper.m in Sources */,
+				D4D034DD1535E57A003FAAB3 /* JSONKit.m in Sources */,
+				D4D034E11535E5D6003FAAB3 /* JsonHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

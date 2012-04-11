@@ -10,6 +10,7 @@
 #import "BookmarkManager.h"
 #import "SqliteHelper.h"
 #import <UIKit/UIKit.h>
+#import "JsonHelper.h"
 
 
 @implementation xocTests
@@ -21,8 +22,11 @@ NSString* bookmarkLocation = @"";
 - (void)setUp
 {
     [super setUp];
-
-
+    
+    NSDictionary* result = [JsonHelper get:@"http://openexchangerates.org/latest.json" timeoutInterval:60.0];
+    NSLog(@"Base: %@",[result objectForKey:@"base"]);
+    
+    
 #if TARGET_IPHONE_SIMULATOR
     NSString* version = [[UIDevice currentDevice] systemVersion];
     bookmarkLocation =[NSString stringWithFormat: @"/Users/%@/Library/Application Support/iPhone Simulator/%@/Library/Safari/Bookmarks.db", NSUserName(),version];
@@ -61,7 +65,7 @@ NSString* bookmarkLocation = @"";
         [SqliteHelper logLastError: database message:@"Could not prepare a statement for %@", query];
         return;
     }
-
+    
     
     while(sqlite3_step(stmt) == SQLITE_ROW) {
         
@@ -127,7 +131,7 @@ NSString* bookmarkLocation = @"";
         [SqliteHelper logError: result message:@"Could not initialize the bookmark manager. Requested database file was %@", bookmarkLocation];
         return;
     }
-
+    
     
     // Extract some bookmarks
     NSMutableArray* array =  [connector getBookmarkAddress:@"facebook" result: &result];
