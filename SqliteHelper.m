@@ -2,7 +2,6 @@
 //  SqliteHelper.m
 //  xoc
 //
-//  Created by Ilya Alberton on 3/23/12.
 //  Copyright 2012 artmobile@gmail.com. All rights reserved.
 //
 

@@ -114,6 +114,8 @@
 		D4216D6C15137FB10009A965 /* Connector */ = {
 			isa = PBXGroup;
 			children = (
+				D4D034DF1535E5D6003FAAB3 /* JsonHelper.h */,
+				D4D034E01535E5D6003FAAB3 /* JsonHelper.m */,
 				D4216D6E15137FE50009A965 /* BookmarkManager.h */,
 				D4216D6F15137FE50009A965 /* BookmarkManager.m */,
 				D4216D7115161BC70009A965 /* Bookmark.h */,
@@ -127,8 +129,6 @@
 		D4C1BF24150F5E2000D152DC = {
 			isa = PBXGroup;
 			children = (
-				D4D034DF1535E5D6003FAAB3 /* JsonHelper.h */,
-				D4D034E01535E5D6003FAAB3 /* JsonHelper.m */,
 				D4D034D51535E54F003FAAB3 /* Library */,
 				D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */,
 				D4216D6C15137FB10009A965 /* Connector */,

@@ -2,7 +2,6 @@
 //  PlistHandler.m
 //  xoc
 //
-//  Created by Ilya Alberton on 3/13/12.
 //  Copyright 2012 artmobile@gmail.com. All rights reserved.
 //
 

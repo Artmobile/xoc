@@ -2,7 +2,6 @@
 //  SqliteConnector.m
 //  xoc
 //
-//  Created by Ilya Alberton on 3/16/12.
 //  Copyright 2012 artmobile@gmail.com. All rights reserved.
 //
 

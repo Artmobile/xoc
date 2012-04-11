@@ -2,7 +2,6 @@
 //  JsonHelper.h
 //  xoc
 //
-//  Created by Ilya Alberton on 4/11/12.
 //  Copyright 2012 artmobile@gmail.com. All rights reserved.
 //
 
