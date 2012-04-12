@@ -22,6 +22,12 @@ NSString* bookmarkLocation = @"";
 {
     [super setUp];
     
+    NSString* key = @"123456789012345678901234";
+    
+    NSString* encrypted = [JsonHelper doCipher:key plainText:@"Hello" encryptOrDecrypt:kCCEncrypt];
+    NSString* decrypted = [JsonHelper doCipher:key plainText:encrypted encryptOrDecrypt:kCCDecrypt];
+    
+    
     NSDictionary* result = [JsonHelper get:@"http://openexchangerates.org/latest.json" timeoutInterval:60.0];
     NSLog(@"Base: %@",[result objectForKey:@"base"]);
     
