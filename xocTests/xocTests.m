@@ -10,6 +10,9 @@
 #import "SqliteHelper.h"
 #import <UIKit/UIKit.h>
 #import "JsonHelper.h"
+#import "Krypt.h"
+#import "Cipher.h"
+#import "Base64Encoder.h"
 
 
 @implementation xocTests
@@ -21,16 +24,6 @@ NSString* bookmarkLocation = @"";
 - (void)setUp
 {
     [super setUp];
-    
-    NSString* key = @"123456789012345678901234";
-    
-    NSString* encrypted = [JsonHelper doCipher:key plainText:@"Hello" encryptOrDecrypt:kCCEncrypt];
-    NSString* decrypted = [JsonHelper doCipher:key plainText:encrypted encryptOrDecrypt:kCCDecrypt];
-    
-    
-    NSDictionary* result = [JsonHelper get:@"http://openexchangerates.org/latest.json" timeoutInterval:60.0];
-    NSLog(@"Base: %@",[result objectForKey:@"base"]);
-    
     
 #if TARGET_IPHONE_SIMULATOR
     NSString* version = [[UIDevice currentDevice] systemVersion];
@@ -50,6 +43,34 @@ NSString* bookmarkLocation = @"";
     [super tearDown];
 }
 
+
+- (void)testCipher(){
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    
+    NSDictionary* result = [JsonHelper get:@"http://localhost:9001/securesocialajax/test" timeoutInterval:60.0];
+    
+    // Get a string from JSON. The string must be Base64 encoded by sender
+    NSString* str = [result objectForKey:@"data"];
+    
+    // Convert string into NSData
+    NSData* dat= [NSData dataWithBase64EncodedString:str];
+    
+    // Execute Cipher
+    Cipher* cipher = [[Cipher alloc] initWithKey:@"password0"];
+    NSData* decrypted = [cipher decrypt:decrypted];
+    
+    // Convert the decrypted result into text
+    NSString* plainText = [[NSString alloc] initWithData:res encoding:NSUTF8StringEncoding];
+    
+    // Print it
+    NSLog(@"%@",plainText) ;
+    
+    NSString* expectedText = @”Why are all crypto APIs so bloody hideous to use?”;
+    
+    STAssertEqualObjects(expectedText, plainText, @”Decryption mismatch”);
+    
+    [pool drain];
+}
 
 - (void)testSqlHelper{
     NSMutableArray* bookmarks = [[NSMutableArray alloc] init];

@@ -30,6 +30,8 @@
 		D4D034DD1535E57A003FAAB3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034DA1535E57A003FAAB3 /* JSONKit.m */; };
 		D4D034DE1535E57A003FAAB3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D4D034DB1535E57A003FAAB3 /* README.md */; };
 		D4D034E11535E5D6003FAAB3 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034E01535E5D6003FAAB3 /* JsonHelper.m */; };
+		D4D034E71540541A003FAAB3 /* Cipher.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034E61540541A003FAAB3 /* Cipher.m */; };
+		D4D034EA15405E47003FAAB3 /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D034E915405E47003FAAB3 /* Base64Encoder.m */; };
 		D4D67F15151333E9002FFDD5 /* PlistHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D67F17151333E9002FFDD5 /* PlistHandler.m */; };
 		D4D67F1E1513344B002FFDD5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */; };
 		D4ED4CBA151F9E24003FD910 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */; };
@@ -79,6 +81,10 @@
 		D4D034DB1535E57A003FAAB3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D4D034DF1535E5D6003FAAB3 /* JsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonHelper.h; sourceTree = "<group>"; };
 		D4D034E01535E5D6003FAAB3 /* JsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonHelper.m; sourceTree = "<group>"; };
+		D4D034E51540541A003FAAB3 /* Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cipher.h; sourceTree = "<group>"; };
+		D4D034E61540541A003FAAB3 /* Cipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cipher.m; sourceTree = "<group>"; };
+		D4D034E815405E47003FAAB3 /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
+		D4D034E915405E47003FAAB3 /* Base64Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Encoder.m; sourceTree = "<group>"; };
 		D4D67F16151333E9002FFDD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/PlistHandler.m; sourceTree = "<group>"; };
 		D4D67F1D1513344B002FFDD5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4ED4CB9151F9E24003FD910 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -122,6 +128,10 @@
 				D4216D7215161BC70009A965 /* Bookmark.m */,
 				D4BAD8F7151CAE480083E33E /* SqliteHelper.h */,
 				D4BAD8F8151CAE480083E33E /* SqliteHelper.m */,
+				D4D034E51540541A003FAAB3 /* Cipher.h */,
+				D4D034E61540541A003FAAB3 /* Cipher.m */,
+				D4D034E815405E47003FAAB3 /* Base64Encoder.h */,
+				D4D034E915405E47003FAAB3 /* Base64Encoder.m */,
 			);
 			name = Connector;
 			sourceTree = "<group>";
@@ -345,6 +355,8 @@
 				D4BAD8F9151CAE480083E33E /* SqliteHelper.m in Sources */,
 				D4D034DD1535E57A003FAAB3 /* JSONKit.m in Sources */,
 				D4D034E11535E5D6003FAAB3 /* JsonHelper.m in Sources */,
+				D4D034E71540541A003FAAB3 /* Cipher.m in Sources */,
+				D4D034EA15405E47003FAAB3 /* Base64Encoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
