@@ -46,7 +46,7 @@ NSString* bookmarkLocation = @"";
 - (void)testCipher{
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     
-    NSDictionary* result = [JsonHelper get:@"http://localhost:9001/securesocialajax/test" timeoutInterval:60.0];
+    NSDictionary* result = [JsonHelper get:@"http://localhost:9001/securesocialajax/test?message=One%20way&password=ticktick" timeoutInterval:60.0];
     
     // Get a string from JSON. The string must be Base64 encoded by sender
     NSString* str = [result objectForKey:@"data"];
@@ -55,18 +55,14 @@ NSString* bookmarkLocation = @"";
     NSData* dat= [NSData dataWithBase64EncodedString:str];
     
     // Execute Cipher
-    Cipher* cipher = [[Cipher alloc] initWithKey:@"password0"];
-    NSData* decrypted = [cipher decrypt:decrypted];
+    Cipher* cipher = [[Cipher alloc] initWithKey:@"ticktick"];
+    NSData* decrypted = [cipher decrypt:dat];
     
     // Convert the decrypted result into text
     NSString* plainText = [[NSString alloc] initWithData:decrypted encoding:NSUTF8StringEncoding];
     
     // Print it
     NSLog(@"%@",plainText);
-    
-    //NSString* expectedText = @”Why are all crypto APIs so bloody hideous to use?”;
-    
-    //STAssertEqualObjects(expectedText, plainText, @”Decryption mismatch”);
     
     [pool drain];
 }
