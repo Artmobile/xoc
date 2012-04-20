@@ -1,10 +1,3 @@
-//
-//  Cipher.h
-//  xoc
-//
-//  Created by Ilya Alberton on 4/19/12.
-//  Copyright 2012 artmobile@gmail.com. All rights reserved.
-//
 #import <Foundation/Foundation.h>
 
 #import <CommonCrypto/CommonDigest.h>  

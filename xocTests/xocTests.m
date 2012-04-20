@@ -12,6 +12,7 @@
 #import "JsonHelper.h"
 #import "Cipher.h"
 #import "Base64Encoder.h"
+#import "SecureJsonChannel.h"
 
 
 @implementation xocTests
@@ -43,6 +44,20 @@ NSString* bookmarkLocation = @"";
 }
 
 
+- (void)testCipherChannel{
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    
+    NSString* key = [SecureJsonChannel negotiateKey:@"http://localhost:9001"];
+    
+    NSDictionary* result = [SecureJsonChannel get:
+                            @"http://localhost:9001/securesocialajax/testNested?message=One%20way&password=ticktick" 
+                            andPassword:@"ticktick"];
+    
+    NSLog(@"%@", [result objectForKey:@"content"]);
+    
+    [pool drain];
+}
+
 - (void)testCipher{
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     
@@ -55,7 +70,7 @@ NSString* bookmarkLocation = @"";
     NSData* dat= [NSData dataWithBase64EncodedString:str];
     
     // Execute Cipher
-    Cipher* cipher = [[Cipher alloc] initWithKey:@"ticktick"];
+    Cipher* cipher = [[Cipher alloc] initWithKey:@"A34vB1007688"];
     NSData* decrypted = [cipher decrypt:dat];
     
     // Convert the decrypted result into text

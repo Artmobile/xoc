@@ -1,9 +1,4 @@
-//
-//  Base64Encoder.m
-//  xoc
-//
-//  Created by Ilya Alberton on 4/19/12.
-//  Copyright 2012 artmobile@gmail.com. All rights reserved.
+
 //
 
 #import "Base64Encoder.h"
