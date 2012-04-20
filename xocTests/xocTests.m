@@ -49,9 +49,11 @@ NSString* bookmarkLocation = @"";
     
     NSString* key = [SecureJsonChannel negotiateKey:@"http://localhost:9001"];
     
+    NSString* message = @"One%20way";
+    
     NSDictionary* result = [SecureJsonChannel get:
-                            @"http://localhost:9001/securesocialajax/testNested?message=One%20way&password=ticktick" 
-                            andPassword:@"ticktick"];
+                            [NSString stringWithFormat: @"http://localhost:9001/securesocialajax/testNested?message=%@", message] 
+                            andPassword:key];
     
     NSLog(@"%@", [result objectForKey:@"content"]);
     
@@ -70,7 +72,7 @@ NSString* bookmarkLocation = @"";
     NSData* dat= [NSData dataWithBase64EncodedString:str];
     
     // Execute Cipher
-    Cipher* cipher = [[Cipher alloc] initWithKey:@"A34vB1007688"];
+    Cipher* cipher = [[Cipher alloc] initWithKey:@"ticktick"];
     NSData* decrypted = [cipher decrypt:dat];
     
     // Convert the decrypted result into text

@@ -30,7 +30,7 @@
     NSData* dat= [NSData dataWithBase64EncodedString:str];
     
     // Execute Cipher
-    Cipher* cipher = [[Cipher alloc] initWithKey:@"ticktick"];
+    Cipher* cipher = [[Cipher alloc] initWithKey:password];
     NSData* decrypted = [cipher decrypt:dat];
     
     JSONDecoder* decoder = [[JSONDecoder alloc] init];    
@@ -52,7 +52,7 @@
     NSData* dat= [NSData dataWithBase64EncodedString:str];
     
     // Execute Cipher
-    Cipher* cipher = [[Cipher alloc] initWithKey:@"A34vB1007688"];
+    Cipher* cipher = [[Cipher alloc] initWithKey:[self permanent]];
     NSData* decrypted = [cipher decrypt:dat];
     
     JSONDecoder* decoder = [[JSONDecoder alloc] init];    
